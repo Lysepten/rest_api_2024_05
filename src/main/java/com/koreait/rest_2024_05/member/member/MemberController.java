@@ -35,6 +35,14 @@ public class MemberController {
 
         resp.addHeader("Authentication",accessToken);
 
-        return "응답 본문";
+        return """
+            {
+            "resultCode" : "s-1",
+            "msg" : "엑세스 토큰이 생성되었습니다.",
+            "data : {
+                "Access Token : " + "%s"
+                }
+            }
+            """.formatted(accessToken).stripIndent(); // stripIndent은 trim과 같은 역할
     }
 }
